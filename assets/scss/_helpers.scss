@@ -1,0 +1,38 @@
+//FONT
+.fs-xs          {@include font-size($font-size-xs)}
+.fs-sm          {@include font-size($font-size-sm)}
+.fs-md          {@include font-size($font-size-md)}
+.fs-lg          {@include font-size($font-size-lg);
+    @include media-breakpoint-down(xl) {
+        font-size:$font-size-16;
+    }
+}
+.fs-xl          {@include font-size($font-size-xl!important)}
+.fs-22          {@include font-size($font-size-22)}
+.fs-13          {@include font-size($font-size-13)}
+.fs-16          {@include font-size($font-size-16)}
+.fs-26          {@include font-size($font-size-26)}
+.fs-30          {@include font-size($font-size-30)}
+.fs-36          {@include font-size($font-size-36)}
+.fs-40          {@include font-size($font-size-40)}
+.fs-56          {@include font-size($font-size-56)}
+
+// FONT WEIGHT
+.fw-regular     {font-weight: $font-400;}
+.fw-medium      {font-weight: $font-500;}
+.fw-semibold    {font-weight: $font-600;}
+.fw-bold        {font-weight: $font-700;}
+.fw-extrabold   {font-weight: $font-800;}
+.fw-900         {font-weight: $font-900;}
+
+// COLORS
+.color-green-2  {color: $green-2;}
+
+// COLOR-RGBA
+.color-black30  {color:rgba(0, 0, 0, 0.3);}
+
+// LETTER SPACING
+.letter-spacing10    {letter-spacing: $letter-spacing10;}
+
+// MARGIN BOTTOM
+.mb-60     {margin-bottom: 60px;}

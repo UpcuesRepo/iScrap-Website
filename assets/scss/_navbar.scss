@@ -1,0 +1,128 @@
+
+nav{
+    &.navbar{
+        &.inner-navbar{
+            padding: 0;
+            background-image: url("../../../images/backgrounds/bg-nav.png");
+            height: 90px;
+            position: fixed;
+            width: 100%;
+            .link-part{
+                .bottom-links{
+                    list-style-type: none;
+                    .nav-link{
+                        font-size: $font-size-16;
+                        font-weight: $font-900;
+                        color: $white-rgba3;
+                        padding: 10px;
+                        transition: all ease-out 250ms;
+                        &:hover{
+                            color: $white;
+                        }
+                        &.active{
+                            color: $white;
+                        }
+                    }
+                }
+                .contact-link{
+                    background-color: $white-rgba1;
+                    padding: 0 20px;
+                    border-radius: 0 0 5px 5px;
+                    .nav-link{
+                        font-size: $font-size-md;
+                        font-weight: $font-700;
+                        color: $white-rgba3;
+                        padding: 10px 15px;
+                        &:hover,&:active{
+                            color: $green-2;
+                            svg{
+                                path{
+                                    stroke: $green;
+                                }
+                            }
+                        }
+                    }
+                    .dropdown{
+                        &.nav-dropdown{
+                            padding: 8px 15px;
+                            .dropdown-toggle{
+                                font-size: $font-size-md;
+                                font-weight: $font-700;
+                                color: $white;
+                                background-color: transparent;
+                                border: 0  ;
+                                &::after{
+                                    border-top: 0;
+                                    border-left: 0;
+                                    border-right: 0;
+                                    height: 20px;
+                                    width: 20px;
+                                    position: absolute;
+                                    top: 10px;
+                                    background-image: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 9.1665L10 11.6665L7.5 9.1665" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+                                }
+                                &.show{
+                                    &::after{
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                            }
+                            .dropdown-menu{
+                                &[data-bs-popper]{
+                                    left: -55px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.main-content {
+    width: 100%;
+    section {
+        background-color: #f2f2f2;
+        height: 100vh;
+        margin:0;
+        h1 {
+            color: #444;
+            font-weight: 600;
+        }
+        &.home-section{
+            padding: 150px 50px 50px;
+            background-image: url(../../../images/backgrounds/price-shape.png);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+
+.btn{
+    border-radius: $radius-xxl;
+    padding: 11px 25px;
+    border: 0;
+    &.btn-dark{
+        background-color: $black;
+        color:$white;
+        font-size: $font-size-lg;
+        font-weight: $font-800;
+        letter-spacing: $letter-spacing10;
+        &:hover{
+            background-color: $green-2;
+            border: 0;
+        }
+    }
+    &.btn-green2{
+        background-color: $green-2;
+        color:$white;
+        font-size: $font-size-lg;
+        font-weight: $font-800;
+        letter-spacing: $letter-spacing10;
+        &:hover{
+            background-color: $black;
+            border: 0;
+        }
+    }
+}
