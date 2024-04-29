@@ -7,6 +7,7 @@ nav{
             height: 90px;
             position: fixed;
             width: 100%;
+            z-index: 1;
             .link-part{
                 .bottom-links{
                     list-style-type: none;
@@ -82,9 +83,23 @@ nav{
 
 .main-content {
     width: 100%;
+    .title{
+        font-size: $font-size-34;
+        font-weight: $font-900;
+        letter-spacing: $letter-spacing10;
+        position: relative;
+        text-transform: $text-uppercase;
+        &::after{
+            content: "";
+            background-image: url("../../../images/icons/green-line.png");
+            height: 6px;
+            width: 150px;
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+        }
+    }
     section {
-        background-color: #f2f2f2;
-        height: 100vh;
         margin:0;
         h1 {
             color: #444;
@@ -95,6 +110,135 @@ nav{
             background-image: url(../../../images/backgrounds/price-shape.png);
             background-repeat: no-repeat;
             background-position: center;
+            height: 100vh;
+        }
+        &.features-section{
+            padding: 50px;
+            height: 100%;
+            .feature-paragraph{
+                font-size: $font-size-lg;
+                line-height: $line-height-36;
+                span{
+                    color: $green-2;
+                    font-weight: $font-700;
+                }
+            }
+            .feature-title{
+                font-size: $font-size-22;
+                font-weight: $font-900;
+                line-height: $line-height-36;
+                letter-spacing: $letter-spacing10;
+            }
+            .feature-description{
+                font-size: $font-size-16;
+                line-height: $line-height-36;
+            }
+        }
+        &.pricing{
+            height: 100vh;
+        }
+        &.whyisr-section{
+            padding: 50px;
+            height: 100%;
+            background-color: rgba(51, 132, 216, 0.05);
+            background-image: url("../../../images/backgrounds/price-shape.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            .get-start{
+                font-size: $font-size-lg;
+                line-height: $line-height-36;
+            }
+            .whyisr-title{
+                font-size: $font-size-30;
+                font-weight: $font-900;
+                line-height: $line-height-36;
+                letter-spacing: $letter-spacing10;
+                text-transform: $text-uppercase;
+                &.text-green{
+                    color: $green-2;
+                }
+            }
+            .description{
+                font-size: $font-size-lg;
+                font-weight: $font-600;
+                line-height: $line-height-36;
+            }
+        }
+        &.shop-section{
+            padding: 50px;
+            height: 100%;
+            .left-part{
+                font-size: $font-size-lg;
+                line-height: $line-height-36;
+            }
+            .description{
+                .desc-title{
+                    font-size: $font-size-22;
+                    font-weight: $font-900;
+                    line-height: $line-height-36;
+                    letter-spacing: $letter-spacing10;
+                    text-transform: $text-uppercase;
+                }
+                .desc-p{
+                    font-size: $font-size-16;
+                    line-height: $line-height-30;
+                }
+                .count{
+                    font-size: $font-size-32;
+                    line-height: $line-height-36;
+                    font-weight: $font-900;
+                    letter-spacing: $letter-spacing10;
+                    color: $green-2;
+                }
+            }
+        }
+        .footer{
+            &.main-footer{
+                background-image: url("../../../images/backgrounds/gradient-bg.png");
+                padding: 50px;
+                .left-part{
+                    .copyright-link{
+                        color: $white;
+                        text-transform: uppercase;
+                        font-size: $font-size-lg;
+                        font-weight: $font-800;
+                        letter-spacing: 3px;
+                        text-decoration: none;
+                        &:hover{
+                            color: $secondary;
+                        }
+                    }
+                }
+                .right-part{
+                    .contact-title{
+                        font-size: $font-size-22;
+                        font-weight: $font-800;
+                        color: $white;
+                        letter-spacing: 3px;
+                    }
+                    .address, .number{
+                        font-size: $font-size-16;
+                        color: $white;
+                        line-height: $line-height-26;
+                        text-decoration: none;
+                    }
+                }
+                .social-icons{
+                    &:not(:last-child){
+                        margin-right: 10px;
+                    }
+                    &:hover{
+                        svg{
+                            g{
+                                opacity: 1;
+                            }
+                            path{
+                                fill: $secondary;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
