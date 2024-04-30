@@ -135,7 +135,81 @@ nav{
             }
         }
         &.pricing{
-            height: 100vh;
+            #plan-content {
+                width: 100%;
+                text-align: center;
+                position: relative;
+                .fieldset-container{
+                    position: relative;
+                    padding: 50px;
+                    fieldset {
+                        background: white;
+                        border: 0 none;
+                        box-sizing: border-box;
+                        width: 100%;
+                        /*stacking fieldsets above each other*/
+                        position: relative;
+                        &:not(:first-of-type) {
+                            display: none;
+                        }
+                    }
+                }
+                .progressbar {
+                    margin-bottom: 30px;
+                    width: 90%;
+                    overflow: hidden;
+                    /*CSS counters to number the steps*/
+                    counter-reset: step;
+                    li {
+                        list-style-type: none;
+                        color: $black;
+                        text-transform: $text-uppercase;
+                        font-size: $font-size-16;
+                        font-weight: $font-900;
+                        line-height: $line-height-36;
+                        letter-spacing: $letter-spacing10;
+                        width: 20%;
+                        float: left;
+                        position: relative;
+                        &:before {
+                            content: counter(step);
+                            counter-increment: step;
+                            width: 40px;
+                            height: 40px;
+                            line-height: $line-height-36;
+                            display: block;
+                            font-size: $font-size-22;
+                            font-weight: $font-900;
+                            background: $grey-10;
+                            color: $grey-11;
+                            border-radius: 50%;
+                            margin: 0 auto 5px auto;
+                        }
+                        &:after {
+                            content: '';
+                            width: 100%;
+                            height: 2px;
+                            background: $grey-12;
+                            position: absolute;
+                            left: -50%;
+                            top: 25%;
+                            z-index: -1; /*put it behind the numbers*/
+                        }
+                        &:first-child{
+                            &:after {
+                                /*connector not needed before the first step*/
+                                content: none; 
+                            }
+                        }
+                        &.active{
+                            &::after, &::before{
+                                background: #4EB855;
+	                            color: white;
+                            }
+                        }
+                    }
+                }
+            }
         }
         &.whyisr-section{
             padding: 50px;
