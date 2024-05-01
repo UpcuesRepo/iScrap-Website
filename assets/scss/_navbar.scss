@@ -135,81 +135,246 @@ nav{
             }
         }
         &.pricing{
-            #plan-content {
-                width: 100%;
-                text-align: center;
-                position: relative;
-                .fieldset-container{
+            padding: 50px;
+            position: relative;
+            .pricing-details{
+                font-size: $font-size-lg;
+                line-height: $line-height-36;
+            }
+            .progressbar{
+                display: flex;
+                margin: 40px 0;
+                user-select: none;
+                .step{
+                    text-align: center;
+                    width: 20%;
                     position: relative;
-                    padding: 50px;
-                    fieldset {
-                        background: white;
-                        border: 0 none;
-                        box-sizing: border-box;
-                        width: 100%;
-                        /*stacking fieldsets above each other*/
-                        position: relative;
-                        &:not(:first-of-type) {
-                            display: none;
-                        }
-                    }
-                }
-                .progressbar {
-                    margin-bottom: 30px;
-                    width: 90%;
-                    overflow: hidden;
-                    /*CSS counters to number the steps*/
-                    counter-reset: step;
-                    li {
-                        list-style-type: none;
-                        color: $black;
-                        text-transform: $text-uppercase;
-                        font-size: $font-size-16;
+                    p{
                         font-weight: $font-900;
+                        font-size: $font-size-16;
                         line-height: $line-height-36;
                         letter-spacing: $letter-spacing10;
-                        width: 20%;
-                        float: left;
+                        margin-bottom: 8px;
+                        text-transform: $text-uppercase;
+                    }
+                    .bullet{
+                        height: 40px;
+                        width: 40px;
+                        display: inline-block;
+                        border-radius: 50%;
                         position: relative;
-                        &:before {
-                            content: counter(step);
-                            counter-increment: step;
-                            width: 40px;
-                            height: 40px;
-                            line-height: $line-height-36;
-                            display: block;
-                            font-size: $font-size-22;
-                            font-weight: $font-900;
-                            background: $grey-10;
-                            color: $grey-11;
-                            border-radius: 50%;
-                            margin: 0 auto 5px auto;
-                        }
-                        &:after {
-                            content: '';
-                            width: 100%;
-                            height: 2px;
-                            background: $grey-12;
+                        transition: 0.2s;
+                        font-weight: $font-900;
+                        font-size: $font-size-22;
+                        line-height: $line-height-36;
+                        background-color: $grey-10;
+                        color: $grey-11;
+                        span{
                             position: absolute;
-                            left: -50%;
-                            top: 25%;
-                            z-index: -1; /*put it behind the numbers*/
+                            left: 50%;
+                            transform: translateX(-50%);
                         }
-                        &:first-child{
-                            &:after {
-                                /*connector not needed before the first step*/
-                                content: none; 
+                    }
+                    &:last-child{
+                        &::before{
+                            width: 0;
+                        }
+                    }
+                    &.active{
+                        .bullet{
+                            color: $white;
+                            background: $green-2;
+                        }
+                        &:before{
+                            background: $green-2;
+                            transform: scaleX(0);
+                            transform-origin: left;
+                            animation: animate 0.3s linear forwards;
+                        }
+                    }
+                    &::before{
+                        background: $grey-12 ;
+                        content: "";
+                        height: 2px;
+                        left: 50%;
+                        position: absolute;
+                        top: 22%;
+                        width: 100%;
+                        z-index: -1;
+                    }
+                }
+            }
+            .plan-content{
+                width: 100%;
+                overflow: hidden;
+                .inner-plan-content{
+                    display: flex;
+                    width: 500%;
+                    .page{
+                        width: 25%;
+                        transition: margin-left 0.3s ease-in-out;
+                        .field {
+                            .btn{
+                                &.btn-dark{
+                                    transition: 0.5s ease;
+                                }
                             }
                         }
-                        &.active{
-                            &::after, &::before{
-                                background: #4EB855;
-	                            color: white;
+                        &.feature-section{
+                            .review-plan-card{
+                                background-color: $skyblue-2;
+                                border-radius: $radius-15;
+                                .card-title{
+                                    font-size: $font-size-20;
+                                    font-weight: $font-900;
+                                    letter-spacing: $letter-spacing10;
+                                    line-height: $line-height-28;
+                                    color: $white;
+                                    text-transform: $text-uppercase;
+                                    padding: 20px;
+                                    text-align: center;
+                                    border-bottom: 2px dashed $white;
+                                    position: relative;
+                                    &::after{
+                                        content: "";
+                                        width: 22px;
+                                        height: 22px;
+                                        background-color: $white;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        bottom: -10px;
+                                        left: -10px;
+                                    }
+                                    &::before{
+                                        content: "";
+                                        width: 22px;
+                                        height: 22px;
+                                        background-color: $white;
+                                        border-radius: 50%;
+                                        position: absolute;
+                                        bottom: -10px;
+                                        right: -10px;
+                                    }
+                                }
+                                .ongoing-payment-part{
+                                    background-color: $white-rgba1;
+                                    padding: 15px;
+                                    .ongoing-payment-title{
+                                        font-size: $font-size-md;
+                                        font-weight: $font-900;
+                                        line-height: $line-height-24;
+                                        letter-spacing: $letter-spacing10;
+                                        text-transform: $text-uppercase;
+                                        color: $white;
+                                    }
+                                    .ongoing-payment-sub-title{
+                                        font-size: $font-size-11;
+                                        line-height: $line-height-24;
+                                        text-transform: $text-uppercase;
+                                        color: $white;
+                                    }
+                                }
+                                .total-part{
+                                    padding: 20px 15px;
+                                    &.border-bottom-white{
+                                        border-bottom: 2px dashed $white;
+                                        position: relative;
+                                        &::after{
+                                            content: "";
+                                            width: 22px;
+                                            height: 22px;
+                                            background-color: $white;
+                                            border-radius: 50%;
+                                            position: absolute;
+                                            bottom: -10px;
+                                            left: -10px;
+                                        }
+                                        &::before{
+                                            content: "";
+                                            width: 22px;
+                                            height: 22px;
+                                            background-color: $white;
+                                            border-radius: 50%;
+                                            position: absolute;
+                                            bottom: -10px;
+                                            right: -10px;
+                                        }
+                                    }
+                                    .month{
+                                        font-size: $font-size-13;
+                                        font-weight: $font-700;
+                                        line-height: $line-height-26;
+                                        color: $white;
+                                        text-transform: $text-uppercase;
+                                    }
+                                    .total{
+                                        font-size: $font-size-md;
+                                        font-weight: $font-700;
+                                        line-height: $line-height-26;
+                                        color: $white;
+                                    }
+                                    .scanning{
+                                        font-size: $font-size-13;
+                                        line-height: $line-height-26;
+                                        color: $white;
+                                        text-transform: $text-uppercase;
+                                    }
+                                    .free{
+                                        font-size: $font-size-md;
+                                        font-weight: $font-700;
+                                        line-height: $line-height-26;
+                                        color: $white;
+                                    }
+                                    .month-total{
+                                        font-size: $font-size-16;
+                                        font-weight: $font-800;
+                                        line-height: $line-height-26;
+                                        color: $white;
+                                    }
+                                    .charge{
+                                        font-size: $font-size-md;
+                                        font-weight: $font-800;
+                                        line-height: $line-height-26;
+                                        color: $white;
+                                    }
+                                    .border-bottom-grey{
+                                        border-bottom: 1px solid $grey13-rgba1;
+                                    }
+                                }
+                                .total-due{
+                                    padding: 40px 15px;
+                                    position: relative;
+                                    .total{
+                                        font-size: $font-size-16;
+                                        font-weight: $font-800;
+                                        line-height: $line-height-26;
+                                        color: $white;
+                                        text-transform: $text-uppercase;
+                                    }
+                                    .pay-total{
+                                        font-size: $font-size-20;
+                                        font-weight: $font-800;
+                                        color: $white;
+                                    }
+                                    .pay-text{
+                                        font-size: $font-size-13;
+                                        color: $white;
+                                        text-transform: $text-uppercase;
+                                    }
+                                    .btn{
+                                        position: absolute;
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
+          @keyframes animate {
+            100%{
+              transform: scaleX(1);
+            }
+          }
         }
         &.whyisr-section{
             padding: 50px;
@@ -344,3 +509,4 @@ nav{
         }
     }
 }
+
