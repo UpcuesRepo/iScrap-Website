@@ -1,6 +1,10 @@
 
 nav{
     &.navbar{
+        display: block;
+        @include media-breakpoint-down(md){
+            display: none;
+        }
         &.inner-navbar{
             padding: 0;
             background-image: url("../../../images/backgrounds/bg-nav.png");
@@ -78,17 +82,92 @@ nav{
                 }
             }
         }
+        &.mobile-nav{
+            display: none;
+            &.inner-navbar{
+                .img-part{
+                    img{
+                        width: 200px;
+                    }
+                }
+                .link-part{
+                    .contact-link{
+                        height: 100%;
+                        background-color: transparent;
+                    }    
+                }   
+            }
+            .offcanvas{
+                &.offcanvas-mobile-nav{
+                    width: 100%;
+                    background-image: url("../../../images/backgrounds/bg-nav.png");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    .offcanvas-header{
+                        .btn-close{
+                            background-image: none;
+                            height: 30px;
+                            width: 30px;
+                            opacity: 1;
+                        }
+                    }
+                    .offcanvas-body{
+                        .bottom-links{
+                            list-style-type: none;
+                            li{
+                                .nav-link{
+                                    color: $white;
+                                    font-size: $font-size-16;
+                                    font-weight: $font-700;
+                                    padding: 15px;
+                                    &:hover{
+                                        color: $green;
+                                        background-color: $white;
+                                        border-radius: $radius-lg;
+                                    }
+                                }
+                            }
+                        }
+                        .contact-link{
+                            .nav-link{
+                                color: $white;
+                                font-size: $font-size-16;
+                                font-weight: $font-700;
+                                padding: 15px;
+                                &:hover{
+                                    color: $green;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            @include media-breakpoint-down(md){
+                display: block;
+            }
+        }
     }
 }
 
 .main-content {
     width: 100%;
+    .md-flex-column{
+        @include media-breakpoint-down(md){
+            flex-direction: column;
+        }
+    }
     .title{
         font-size: $font-size-34;
         font-weight: $font-900;
         letter-spacing: $letter-spacing10;
         position: relative;
         text-transform: $text-uppercase;
+        @include media-breakpoint-down(lg){
+            font-size: $font-size-30;
+        }
+        @include media-breakpoint-down(sm){
+            font-size: $font-size-26;
+        }
         &::after{
             content: "";
             background-image: url("../../../images/icons/green-line.png");
@@ -111,13 +190,52 @@ nav{
             background-repeat: no-repeat;
             background-position: center;
             height: 100vh;
+            @include media-breakpoint-down(sm){
+                height: auto;
+            }
+            .sm-col-reverse{
+                @include media-breakpoint-down(sm){
+                    flex-direction: column-reverse;
+                }    
+            }
+            .right-part{
+                @include media-breakpoint-down(sm){
+                    margin-bottom: 20px;
+                } 
+                img{
+                    @include media-breakpoint-down(xl){
+                        width: 450px;
+                    }
+                    @include media-breakpoint-down(lg){
+                        width: 350px;
+                    }
+                }
+            }
         }
         &.features-section{
             padding: 50px;
             height: 100%;
+            .mb-5{
+                @include media-breakpoint-down(md){
+                    margin-bottom: 0!important;
+                }
+            }
+            @include media-breakpoint-down(md){
+                padding: 30px 45px;
+            }
             .feature-paragraph{
                 font-size: $font-size-lg;
                 line-height: $line-height-36;
+                @include media-breakpoint-down(lg){
+                    font-size: $font-size-16;
+                }
+                @include media-breakpoint-down(md){
+                    margin-top: 20px;
+                }
+                @include media-breakpoint-down(sm){
+                    font-size: $font-size-md;
+                    margin-top: 20px;
+                }
                 span{
                     color: $green-2;
                     font-weight: $font-700;
@@ -128,15 +246,41 @@ nav{
                 font-weight: $font-900;
                 line-height: $line-height-36;
                 letter-spacing: $letter-spacing10;
+                @include media-breakpoint-down(lg){
+                    font-size: $font-size-20;
+                }
+                @include media-breakpoint-down(sm){
+                    font-size: $font-size-lg;
+                }
             }
             .feature-description{
                 font-size: $font-size-16;
                 line-height: $line-height-36;
+                @include media-breakpoint-down(lg){
+                    font-size: $font-size-md;
+                }
+                @include media-breakpoint-down(md){
+                    margin-bottom: 15px;
+                }
+            }
+            .icon{
+                @include media-breakpoint-down(sm){
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            .i-pad{
+                @include media-breakpoint-down(md){
+                    display: none;
+                }    
             }
         }
         &.pricing{
             padding: 50px;
             position: relative;
+            @include media-breakpoint-down(md){
+                padding: 30px 45px;
+            }
             .pricing-details{
                 font-size: $font-size-lg;
                 line-height: $line-height-36;
@@ -361,8 +505,12 @@ nav{
                                         color: $white;
                                         text-transform: $text-uppercase;
                                     }
-                                    .btn{
+                                }
+                                .btn{
+                                    &.btn-bottom{
                                         position: absolute;
+                                        bottom: 2%;
+                                        right: 13%;
                                     }
                                 }
                             }
@@ -383,9 +531,19 @@ nav{
             background-image: url("../../../images/backgrounds/price-shape.png");
             background-repeat: no-repeat;
             background-position: center;
+            @include media-breakpoint-down(md){
+               padding: 30px 45px;
+            }
             .get-start{
                 font-size: $font-size-lg;
                 line-height: $line-height-36;
+                @include media-breakpoint-down(lg){
+                    font-size: $font-size-16;
+                }
+                @include media-breakpoint-down(md){
+                    margin-top: 20px;
+                    font-size: $font-size-md;
+                }
             }
             .whyisr-title{
                 font-size: $font-size-30;
@@ -393,14 +551,29 @@ nav{
                 line-height: $line-height-36;
                 letter-spacing: $letter-spacing10;
                 text-transform: $text-uppercase;
+                @include media-breakpoint-down(lg){
+                    font-size: $font-size-26;
+                }
+                @include media-breakpoint-down(sm){
+                    font-size: $font-size-24;
+                }
                 &.text-green{
                     color: $green-2;
+                    @include media-breakpoint-down(md){
+                        margin-bottom: 20px;
+                    }
                 }
             }
             .description{
                 font-size: $font-size-lg;
                 font-weight: $font-600;
                 line-height: $line-height-36;
+                @include media-breakpoint-down(lg){
+                    font-size: $font-size-16;
+                }
+                @include media-breakpoint-down(sm){
+                    font-size: $font-size-md;
+                }
             }
         }
         &.shop-section{
@@ -409,6 +582,22 @@ nav{
             .left-part{
                 font-size: $font-size-lg;
                 line-height: $line-height-36;
+                @include media-breakpoint-down(lg){
+                    font-size: $font-size-16;
+                    margin-bottom: 25px;
+                }
+                @include media-breakpoint-down(md){
+                    font-size: $font-size-md;
+                }
+                @include media-breakpoint-down(xl){
+                    margin-bottom: 25px;
+                }
+            }
+            .bundle{
+                @include media-breakpoint-down(md){
+                    height: 150px;
+                    width: 150px;
+                }
             }
             .description{
                 .desc-title{
@@ -417,10 +606,16 @@ nav{
                     line-height: $line-height-36;
                     letter-spacing: $letter-spacing10;
                     text-transform: $text-uppercase;
+                    @include media-breakpoint-down(md){
+                        font-size: $font-size-20;
+                    }
                 }
                 .desc-p{
                     font-size: $font-size-16;
                     line-height: $line-height-30;
+                    @include media-breakpoint-down(lg){
+                        font-size: $font-size-md;
+                    }
                 }
                 .count{
                     font-size: $font-size-32;
@@ -428,6 +623,9 @@ nav{
                     font-weight: $font-900;
                     letter-spacing: $letter-spacing10;
                     color: $green-2;
+                    @include media-breakpoint-down(lg){
+                        font-size: $font-size-30;
+                    }
                 }
             }
         }
@@ -435,6 +633,15 @@ nav{
             &.main-footer{
                 background-image: url("../../../images/backgrounds/gradient-bg.png");
                 padding: 50px;
+                @include media-breakpoint-down(lg){
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                }
+                .lg-flex-column{
+                    @include media-breakpoint-down(lg){
+                        flex-direction: column;
+                    }    
+                }
                 .left-part{
                     .copyright-link{
                         color: $white;
@@ -446,6 +653,21 @@ nav{
                         &:hover{
                             color: $secondary;
                         }
+                        @include media-breakpoint-down(lg){
+                            margin-bottom: 10px;
+                        } 
+                        @include media-breakpoint-down(sm){
+                            font-size: $font-size-16;
+                        } 
+                    }
+                    img{
+                        &.logo{
+                            @include media-breakpoint-down(lg){
+                                height: 50px;
+                                width: 190px;
+                                margin-bottom: 10px;
+                            } 
+                        }    
                     }
                 }
                 .right-part{
@@ -454,6 +676,9 @@ nav{
                         font-weight: $font-800;
                         color: $white;
                         letter-spacing: 3px;
+                        @include media-breakpoint-down(sm){
+                            font-size: $font-size-20;
+                        } 
                     }
                     .address, .number{
                         font-size: $font-size-16;
@@ -496,6 +721,9 @@ nav{
             background-color: $green-2;
             border: 0;
         }
+        @include media-breakpoint-down(lg){
+            font-size: $font-size-16;
+        }
     }
     &.btn-green2{
         background-color: $green-2;
@@ -509,4 +737,8 @@ nav{
         }
     }
 }
+
+
+
+
 

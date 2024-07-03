@@ -1,4 +1,10 @@
+$('.multiple-items').slick({
+  infinite: true,
+  slidesToShow: 3,
+  slidesToScroll: 3
+});
 $(document).ready(function () {
+
 // NAVBAR HIGHLIGHT
     // Get all sections that have an ID defined
     const sections = document.querySelectorAll("section[id]");
@@ -120,8 +126,9 @@ prevBtnFifth.addEventListener("click", function(event){
 
 // END PRICING STEPS
 
-});
 
+
+});
 
 
 

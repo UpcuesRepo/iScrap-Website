@@ -12,11 +12,25 @@
 .fs-11          {@include font-size($font-size-11)}
 .fs-13          {@include font-size($font-size-13)}
 .fs-16          {@include font-size($font-size-16)}
-.fs-26          {@include font-size($font-size-26)}
+.fs-26          {@include font-size($font-size-26);
+                    @include media-breakpoint-down(xl){
+                        font-size: $font-size-22;
+                    }
+                    @include media-breakpoint-down(sm){
+                        font-size: $font-size-20;
+                    }
+                }
 .fs-30          {@include font-size($font-size-30)}
 .fs-36          {@include font-size($font-size-36)}
 .fs-40          {@include font-size($font-size-40)}
-.fs-56          {@include font-size($font-size-56)}
+.fs-56          {@include font-size($font-size-56);
+                    @include media-breakpoint-down(xl){
+                        font-size: $font-size-52;
+                    }
+                    @include media-breakpoint-down(sm){
+                        font-size: $font-size-42;
+                    }
+                }
 
 // FONT WEIGHT
 .fw-regular     {font-weight: $font-400;}
