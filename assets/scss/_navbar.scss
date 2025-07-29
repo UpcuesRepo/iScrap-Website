@@ -186,6 +186,9 @@ nav{
             left: 0;
             bottom: -10px;
         }
+        &.white-title{
+            color: $white;
+        }
     }
     section {
         margin:0;
@@ -317,8 +320,9 @@ nav{
             }
         }
         &.pricing{
-            padding: 50px;
+            // padding: 50px;
             position: relative;
+            background-color: $dark-blue;
             @include media-breakpoint-down(md){
                 padding: 30px 45px;
             }
@@ -326,239 +330,437 @@ nav{
                 font-size: $font-size-lg;
                 line-height: $line-height-36;
             }
-            .progressbar{
-                display: flex;
-                margin: 40px 0;
-                user-select: none;
-                .step{
-                    text-align: center;
-                    width: 20%;
-                    position: relative;
-                    p{
+            .white-box{
+                background-color: $white-2;
+                padding: 50px 20px 50px 50px;
+                border-radius: 0 50px 50px 0;
+                box-shadow: 10px 0px 10px 0px #00000026;
+                .step-section{
+                    .stepper {
+                        display: flex;
+                        // justify-content: space-between;
+                        margin-bottom: 20px;
+                        position: relative;
+                        width: 95%;
+                        .step{
+                            width: 25%;
+                            position: relative;
+                            text-align: center;
+                            .bullet {
+                                display: inline-block;
+                                width: 40px;
+                                height: 40px;
+                                line-height: 36px;
+                                background: $grey-10;
+                                color: $grey-11;
+                                font-size: $font-size-22;
+                                font-weight: $font-900;
+                                text-align: center;
+                                border-radius: 50%;
+                                position: relative;
+                                z-index: 0;
+                            }
+                            p{
+                                font-size: $font-size-16;
+                                line-height: $line-height-36;
+                                font-weight: $font-900;
+                                letter-spacing: $letter-spacing10;
+                                text-transform: $text-uppercase;
+                            }
+                            &::before{
+                                background: $grey-12 ;
+                                content: "";
+                                height: 2px;
+                                position: absolute;
+                                top: 21%;
+                                width: 100%;
+                                z-index: 0;
+                            }
+                            &:last-child{
+                                &::after{
+                                    .bullet {
+                                        display: none;
+                                    }
+                                } 
+                                &::before{
+                                    width: 0;
+                                    display: none;
+                                }
+                            }
+                            &.active{
+                                .bullet {
+                                    background: #4EB855;
+                                    color: $white;
+                                }
+                                &:before{
+                                    background: #4EB855;
+                                }
+                                &::after{
+                                    .bullet {
+                                        background: #007bff;
+                                    }
+                                } 
+                            } 
+                            &::after{
+                                .bullet {
+                                    content: "";
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 100%;
+                                    width: calc(100% - 40px);
+                                    height: 4px;
+                                    background: $green-2;
+                                    transform: translateY(-50%);
+                                    z-index: 0;
+                                }
+                            } 
+                        }
+                    }
+                    .content {
+                    display: none;
+                        &.active {
+                            display: block;
+                            padding: 15px;
+                            border: 1px solid #ccc;
+                            border-radius: 8px;
+                        }
+                    }
+                }
+            }
+            .card-section{
+                padding: 50px 50px 50px 10px;
+            }
+            .review-plan-card{
+                background-color: $white;
+                border-radius: $radius-15;
+                box-shadow: 0px 10px 20px 10px #0000000D;
+                overflow: hidden;
+                .ongoing-payment-part{
+                    background-color: $grey13-rgba4;
+                    padding: 15px;
+                    border-radius: 10px;
+                    .ongoing-payment-title{
+                        font-size: $font-size-md;
                         font-weight: $font-900;
-                        font-size: $font-size-16;
-                        line-height: $line-height-36;
+                        line-height: $line-height-24;
                         letter-spacing: $letter-spacing10;
-                        margin-bottom: 8px;
+                        text-transform: $text-uppercase;
+                        color: $green-2;
+                    }
+                    .ongoing-payment-sub-title{
+                        font-size: $font-size-13;
+                        line-height: $line-height-24;
+                        text-transform: $text-uppercase;
+                        color: $grey-14;
+                    }
+                }
+                .total-part{
+                    &.border-bottom-grey{
+                        border-bottom: 1px solid $grey-13;
+                    }
+                    .month{
+                        font-size: $font-size-16;
+                        font-weight: $font-700;
+                        line-height: $line-height-26;
+                        color: $grey-15;
                         text-transform: $text-uppercase;
                     }
-                    .bullet{
-                        height: 40px;
-                        width: 40px;
-                        display: inline-block;
-                        border-radius: 50%;
-                        position: relative;
-                        transition: 0.2s;
-                        font-weight: $font-900;
-                        font-size: $font-size-22;
-                        line-height: $line-height-36;
-                        background-color: $grey-10;
-                        color: $grey-11;
-                        span{
-                            position: absolute;
-                            left: 50%;
-                            transform: translateX(-50%);
-                        }
+                    .total{
+                        font-size: $font-size-16;
+                        font-weight: $font-700;
+                        line-height: $line-height-26;
+                        color: $black;
                     }
-                    &:last-child{
-                        &::before{
-                            width: 0;
-                        }
+                    .scanning{
+                        font-size: $font-size-16;
+                        line-height: $line-height-26;
+                        color: $grey-14;
+                        text-transform: $text-uppercase;
                     }
-                    &.active{
-                        .bullet{
-                            color: $white;
-                            background: $green-2;
-                        }
-                        &:before{
-                            background: $green-2;
-                            transform: scaleX(0);
-                            transform-origin: left;
-                            animation: animate 0.3s linear forwards;
-                        }
+                    .free{
+                        font-size: $font-size-16;
+                        font-weight: $font-700;
+                        line-height: $line-height-26;
+                        color: $black;
                     }
-                    &::before{
-                        background: $grey-12 ;
-                        content: "";
-                        height: 2px;
-                        left: 50%;
+                    .month-total{
+                        font-size: $font-size-16;
+                        font-weight: $font-800;
+                        line-height: $line-height-26;
+                        color: $black;
+                    }
+                    .charge{
+                        font-size: $font-size-16;
+                        font-weight: $font-800;
+                        line-height: $line-height-26;
+                        color: $black;
+                    }
+                }
+                .total-due{
+                    padding: 20px 15px 40px 15px;
+                    position: relative;
+                    background-color: #4EB855;
+                    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
+                    border-radius: $radius-lg;
+                    .total{
+                        font-size: $font-size-16;
+                        font-weight: $font-800;
+                        line-height: $line-height-26;
+                        color: $white;
+                        text-transform: $text-uppercase;
+                    }
+                    .pay-total{
+                        font-size: $font-size-20;
+                        font-weight: $font-800;
+                        color: $white;
+                    }
+                    .pay-text{
+                        font-size: $font-size-13;
+                        color: $white;
+                        text-transform: $text-uppercase;
+                    }
+                }
+                .btn{
+                    &.btn-bottom{
                         position: absolute;
-                        top: 22%;
-                        width: 100%;
-                        z-index: -1;
+                        bottom: 2%;
+                        right: 11%;
                     }
                 }
             }
-            .plan-content{
-                width: 100%;
-                overflow: hidden;
-                .inner-plan-content{
-                    display: flex;
-                    width: 500%;
-                    .page{
-                        width: 25%;
-                        transition: margin-left 0.3s ease-in-out;
-                        .field {
-                            .btn{
-                                &.btn-dark{
-                                    transition: 0.5s ease;
-                                }
-                            }
-                        }
-                        &.feature-section{
-                            .review-plan-card{
-                                background-color: $skyblue-2;
-                                border-radius: $radius-15;
-                                .card-title{
-                                    font-size: $font-size-20;
-                                    font-weight: $font-900;
-                                    letter-spacing: $letter-spacing10;
-                                    line-height: $line-height-28;
-                                    color: $white;
-                                    text-transform: $text-uppercase;
-                                    padding: 20px;
-                                    text-align: center;
-                                    border-bottom: 2px dashed $white;
-                                    position: relative;
-                                    &::after{
-                                        content: "";
-                                        width: 22px;
-                                        height: 22px;
-                                        background-color: $white;
-                                        border-radius: 50%;
-                                        position: absolute;
-                                        bottom: -10px;
-                                        left: -10px;
-                                    }
-                                    &::before{
-                                        content: "";
-                                        width: 22px;
-                                        height: 22px;
-                                        background-color: $white;
-                                        border-radius: 50%;
-                                        position: absolute;
-                                        bottom: -10px;
-                                        right: -10px;
-                                    }
-                                }
-                                .ongoing-payment-part{
-                                    background-color: $white-rgba1;
-                                    padding: 15px;
-                                    .ongoing-payment-title{
-                                        font-size: $font-size-md;
-                                        font-weight: $font-900;
-                                        line-height: $line-height-24;
-                                        letter-spacing: $letter-spacing10;
-                                        text-transform: $text-uppercase;
-                                        color: $white;
-                                    }
-                                    .ongoing-payment-sub-title{
-                                        font-size: $font-size-11;
-                                        line-height: $line-height-24;
-                                        text-transform: $text-uppercase;
-                                        color: $white;
-                                    }
-                                }
-                                .total-part{
-                                    padding: 20px 15px;
-                                    &.border-bottom-white{
-                                        border-bottom: 2px dashed $white;
-                                        position: relative;
-                                        &::after{
-                                            content: "";
-                                            width: 22px;
-                                            height: 22px;
-                                            background-color: $white;
-                                            border-radius: 50%;
-                                            position: absolute;
-                                            bottom: -10px;
-                                            left: -10px;
-                                        }
-                                        &::before{
-                                            content: "";
-                                            width: 22px;
-                                            height: 22px;
-                                            background-color: $white;
-                                            border-radius: 50%;
-                                            position: absolute;
-                                            bottom: -10px;
-                                            right: -10px;
-                                        }
-                                    }
-                                    .month{
-                                        font-size: $font-size-13;
-                                        font-weight: $font-700;
-                                        line-height: $line-height-26;
-                                        color: $white;
-                                        text-transform: $text-uppercase;
-                                    }
-                                    .total{
-                                        font-size: $font-size-md;
-                                        font-weight: $font-700;
-                                        line-height: $line-height-26;
-                                        color: $white;
-                                    }
-                                    .scanning{
-                                        font-size: $font-size-13;
-                                        line-height: $line-height-26;
-                                        color: $white;
-                                        text-transform: $text-uppercase;
-                                    }
-                                    .free{
-                                        font-size: $font-size-md;
-                                        font-weight: $font-700;
-                                        line-height: $line-height-26;
-                                        color: $white;
-                                    }
-                                    .month-total{
-                                        font-size: $font-size-16;
-                                        font-weight: $font-800;
-                                        line-height: $line-height-26;
-                                        color: $white;
-                                    }
-                                    .charge{
-                                        font-size: $font-size-md;
-                                        font-weight: $font-800;
-                                        line-height: $line-height-26;
-                                        color: $white;
-                                    }
-                                    .border-bottom-grey{
-                                        border-bottom: 1px solid $grey13-rgba1;
-                                    }
-                                }
-                                .total-due{
-                                    padding: 40px 15px;
-                                    position: relative;
-                                    .total{
-                                        font-size: $font-size-16;
-                                        font-weight: $font-800;
-                                        line-height: $line-height-26;
-                                        color: $white;
-                                        text-transform: $text-uppercase;
-                                    }
-                                    .pay-total{
-                                        font-size: $font-size-20;
-                                        font-weight: $font-800;
-                                        color: $white;
-                                    }
-                                    .pay-text{
-                                        font-size: $font-size-13;
-                                        color: $white;
-                                        text-transform: $text-uppercase;
-                                    }
-                                }
-                                .btn{
-                                    &.btn-bottom{
-                                        position: absolute;
-                                        bottom: 2%;
-                                        right: 13%;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+            // .progressbar{
+            //     display: flex;
+            //     margin: 40px 0;
+            //     user-select: none;
+            //     .step{
+            //         text-align: center;
+            //         width: 20%;
+            //         position: relative;
+            //         p{
+            //             font-weight: $font-900;
+            //             font-size: $font-size-16;
+            //             line-height: $line-height-36;
+            //             letter-spacing: $letter-spacing10;
+            //             margin-bottom: 8px;
+            //             text-transform: $text-uppercase;
+            //         }
+            //         .bullet{
+            //             height: 40px;
+            //             width: 40px;
+            //             display: inline-block;
+            //             border-radius: 50%;
+            //             position: relative;
+            //             transition: 0.2s;
+            //             font-weight: $font-900;
+            //             font-size: $font-size-22;
+            //             line-height: $line-height-36;
+            //             background-color: $grey-10;
+            //             color: $grey-11;
+            //             span{
+            //                 position: absolute;
+            //                 left: 50%;
+            //                 transform: translateX(-50%);
+            //             }
+            //         }
+            //         &:last-child{
+            //             &::before{
+            //                 width: 0;
+            //             }
+            //         }
+            //         &.active{
+            //             .bullet{
+            //                 color: $white;
+            //                 background: $green-2;
+            //             }
+            //             &:before{
+            //                 background: $green-2;
+            //                 transform: scaleX(0);
+            //                 transform-origin: left;
+            //                 animation: animate 0.3s linear forwards;
+            //             }
+            //         }
+            //         &::before{
+            //             background: $grey-12 ;
+            //             content: "";
+            //             height: 2px;
+            //             left: 50%;
+            //             position: absolute;
+            //             top: 22%;
+            //             width: 100%;
+            //             z-index: -1;
+            //         }
+            //     }
+            // }
+            // .plan-content{
+            //     width: 100%;
+            //     overflow: hidden;
+            //     .inner-plan-content{
+            //         display: flex;
+            //         width: 500%;
+            //         .page{
+            //             width: 25%;
+            //             transition: margin-left 0.3s ease-in-out;
+            //             .field {
+            //                 .btn{
+            //                     &.btn-dark{
+            //                         transition: 0.5s ease;
+            //                     }
+            //                 }
+            //             }
+            //             &.feature-section{
+            //                 .review-plan-card{
+            //                     background-color: $skyblue-2;
+            //                     border-radius: $radius-15;
+            //                     .card-title{
+            //                         font-size: $font-size-20;
+            //                         font-weight: $font-900;
+            //                         letter-spacing: $letter-spacing10;
+            //                         line-height: $line-height-28;
+            //                         color: $white;
+            //                         text-transform: $text-uppercase;
+            //                         padding: 20px;
+            //                         text-align: center;
+            //                         border-bottom: 2px dashed $white;
+            //                         position: relative;
+            //                         &::after{
+            //                             content: "";
+            //                             width: 22px;
+            //                             height: 22px;
+            //                             background-color: $white;
+            //                             border-radius: 50%;
+            //                             position: absolute;
+            //                             bottom: -10px;
+            //                             left: -10px;
+            //                         }
+            //                         &::before{
+            //                             content: "";
+            //                             width: 22px;
+            //                             height: 22px;
+            //                             background-color: $white;
+            //                             border-radius: 50%;
+            //                             position: absolute;
+            //                             bottom: -10px;
+            //                             right: -10px;
+            //                         }
+            //                     }
+            //                     .ongoing-payment-part{
+            //                         background-color: $white-rgba1;
+            //                         padding: 15px;
+            //                         .ongoing-payment-title{
+            //                             font-size: $font-size-md;
+            //                             font-weight: $font-900;
+            //                             line-height: $line-height-24;
+            //                             letter-spacing: $letter-spacing10;
+            //                             text-transform: $text-uppercase;
+            //                             color: $white;
+            //                         }
+            //                         .ongoing-payment-sub-title{
+            //                             font-size: $font-size-11;
+            //                             line-height: $line-height-24;
+            //                             text-transform: $text-uppercase;
+            //                             color: $white;
+            //                         }
+            //                     }
+            //                     .total-part{
+            //                         padding: 20px 15px;
+            //                         &.border-bottom-white{
+            //                             border-bottom: 2px dashed $white;
+            //                             position: relative;
+            //                             &::after{
+            //                                 content: "";
+            //                                 width: 22px;
+            //                                 height: 22px;
+            //                                 background-color: $white;
+            //                                 border-radius: 50%;
+            //                                 position: absolute;
+            //                                 bottom: -10px;
+            //                                 left: -10px;
+            //                             }
+            //                             &::before{
+            //                                 content: "";
+            //                                 width: 22px;
+            //                                 height: 22px;
+            //                                 background-color: $white;
+            //                                 border-radius: 50%;
+            //                                 position: absolute;
+            //                                 bottom: -10px;
+            //                                 right: -10px;
+            //                             }
+            //                         }
+            //                         .month{
+            //                             font-size: $font-size-13;
+            //                             font-weight: $font-700;
+            //                             line-height: $line-height-26;
+            //                             color: $white;
+            //                             text-transform: $text-uppercase;
+            //                         }
+            //                         .total{
+            //                             font-size: $font-size-md;
+            //                             font-weight: $font-700;
+            //                             line-height: $line-height-26;
+            //                             color: $white;
+            //                         }
+            //                         .scanning{
+            //                             font-size: $font-size-13;
+            //                             line-height: $line-height-26;
+            //                             color: $white;
+            //                             text-transform: $text-uppercase;
+            //                         }
+            //                         .free{
+            //                             font-size: $font-size-md;
+            //                             font-weight: $font-700;
+            //                             line-height: $line-height-26;
+            //                             color: $white;
+            //                         }
+            //                         .month-total{
+            //                             font-size: $font-size-16;
+            //                             font-weight: $font-800;
+            //                             line-height: $line-height-26;
+            //                             color: $white;
+            //                         }
+            //                         .charge{
+            //                             font-size: $font-size-md;
+            //                             font-weight: $font-800;
+            //                             line-height: $line-height-26;
+            //                             color: $white;
+            //                         }
+            //                         .border-bottom-grey{
+            //                             border-bottom: 1px solid $grey13-rgba1;
+            //                         }
+            //                     }
+            //                     .total-due{
+            //                         padding: 40px 15px;
+            //                         position: relative;
+            //                         .total{
+            //                             font-size: $font-size-16;
+            //                             font-weight: $font-800;
+            //                             line-height: $line-height-26;
+            //                             color: $white;
+            //                             text-transform: $text-uppercase;
+            //                         }
+            //                         .pay-total{
+            //                             font-size: $font-size-20;
+            //                             font-weight: $font-800;
+            //                             color: $white;
+            //                         }
+            //                         .pay-text{
+            //                             font-size: $font-size-13;
+            //                             color: $white;
+            //                             text-transform: $text-uppercase;
+            //                         }
+            //                     }
+            //                     .btn{
+            //                         &.btn-bottom{
+            //                             position: absolute;
+            //                             bottom: 2%;
+            //                             right: 13%;
+            //                         }
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
           @keyframes animate {
             100%{
               transform: scaleX(1);
@@ -802,6 +1004,88 @@ nav{
 }
 
 
+//   .stepper {
+//       display: flex;
+//       justify-content: space-between;
+//       margin-bottom: 20px;
+//       position: relative;
+//     }
+//     .step{
+//         width: 33.33%;
+//     }
+//     .step::before{
+//         background: grey ;
+//         content: "";
+//         height: 2px;
+//         position: absolute;
+//         top: 22%;
+//         width: 100%;
+//         z-index: -1;
+//     }
+//     .step:last-child{width: 0;}
+//     .step .bullet {
+//       width: 30px;
+//       height: 30px;
+//       line-height: 30px;
+//       background: #ccc;
+//       color: #fff;
+//       text-align: center;
+//       border-radius: 50%;
+//       position: relative;
+//       z-index: 1;
+//     }
+//     .step.active .bullet {
+//       background: #007bff;
+//     }
+//     .step.active:before{
+//         background: green;
+//     }
+//     .step::after .bullet {
+//       content: "";
+//       position: absolute;
+//       top: 50%;
+//       left: 100%;
+//       width: calc(100% - 30px);
+//       height: 4px;
+//       background: #ccc;
+//       transform: translateY(-50%);
+//       z-index: 0;
+//     }
+//     .step:last-child::after .bullet {
+//       display: none;
+//     }
+//     .step.active::after .bullet {
+//       background: #007bff;
+//     }
+    
+
+//     .content {
+//       display: none;
+//     }
+//     .content.active {
+//       display: block;
+//       padding: 15px;
+//       border: 1px solid #ccc;
+//       border-radius: 8px;
+//     }
+
+//     .buttons {
+//       margin-top: 20px;
+//     }
+//     button {
+//       padding: 10px 15px;
+//       margin: 0 5px;
+//     }
+
+
+
+
+
+
+    
+
+
+    
 
 
 

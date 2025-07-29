@@ -1,9 +1,38 @@
+let currentStep = 0;
+    const steps = document.querySelectorAll('.step');
+    const contents = document.querySelectorAll('.content');
+
+    function updateStepper() {
+      steps.forEach((step, index) => {
+        step.classList.toggle('active', index <= currentStep);
+      });
+      contents.forEach((content, index) => {
+        content.classList.toggle('active', index === currentStep);
+      });
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStepper();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        updateStepper();
+      }
+    }
+
+
 $('.multiple-items').slick({
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 3
 });
 $(document).ready(function () {
+  
 // STICKY NAVBAR
 $(window).on("scroll", function() {
     if($(window).scrollTop() > 50) {

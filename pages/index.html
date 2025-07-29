@@ -225,13 +225,9 @@
                     </div>
                 </section>
                 <section id="pricing" class="pricing">
-                    <div class="title mb-5">Customize Your Plan</div>
-                    <div class="pricing-details mb-5">
-                        Customize your plan and choose the options that best fit your business! Pricing is based on whether or not you are taking images, your monthly ticket volume, the number of users on your account, and feature options such as Driver's License scanning, Scale Integration and more. Build your plan below to see what your monthly subscription cost will be.
-                    </div>
-                    <div class="container-fluid">
+                    <!-- <div class="container-fluid">
                         <div class="row">
-                                <!-- multistep -->
+                                multistep
                                 <div class="container">
                                     <div class="row">
                                         <div class="progressbar col-md-8">
@@ -392,6 +388,127 @@
                                        </div>
                                     </div>
                                 </div>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="white-box">
+                                <div class="title mb-5">Customize Your Plan</div>
+                                <div class="pricing-details mb-5">
+                                    Customize your plan and choose the options that best fit your business! Pricing is based on whether or not you are taking images, your monthly ticket volume, the number of users on your account, and feature options such as Driver's License scanning, Scale Integration and more. Build your plan below to see what your monthly subscription cost will be.
+                                </div>
+                                <div class="step-section">
+                                    <div class="stepper">
+                                    <div class="step active" data-step="0">
+                                        <div class="bullet">1</div>
+                                        <p>Features</p>
+                                    </div>
+                                    <div class="step" data-step="1">
+                                        <div class="bullet">2</div>
+                                        <p>OTE fee</p>
+                                    </div>
+                                    <div class="step" data-step="2">
+                                        <div class="bullet">3</div>
+                                        <p>Subscriptions</p>
+                                    </div>
+                                    <div class="step" data-step="3">
+                                        <div class="bullet">4</div>
+                                        <p>Choose Add-ons</p>
+                                    </div>
+                                    <div class="step" data-step="4">
+                                        <div class="bullet">5</div>
+                                        <p>Plan Summary</p>
+                                    </div>
+                                    </div>
+
+                                    <div class="content active" id="content-0">
+                                    <h3>Step 1</h3>
+                                    <p>This is the content of Step 1.</p>
+                                    </div>
+                                    <div class="content" id="content-1">
+                                    <h3>Step 2</h3>
+                                    <p>This is the content of Step 2.</p>
+                                    </div>
+                                    <div class="content" id="content-2">
+                                    <h3>Step 3</h3>
+                                    <p>This is the content of Step 3.</p>
+                                    </div>
+                                    <div class="content" id="content-3">
+                                    <h3>Step 4</h3>
+                                    <p>This is the content of Step 4.</p>
+                                    </div>
+                                    <div class="content" id="content-4">
+                                    <h3>Step 5</h3>
+                                    <p>This is the content of Step 5.</p>
+                                    </div>
+                                    <div class="row justify-content-end">
+                                        <div class="col-md-6 d-flex mt-3">
+                                            <div class="col-md-6 me-2">
+                                                <button onclick="prevStep()" class="prev-1 prev btn btn-green2 w-100">Previous</button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button onclick="nextStep()" class="next-1 next btn btn-dark w-100">Next</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card-section">
+                                <div class="title white-title mb-5">Review your Plan</div>
+                                <div class="review-plan-card">
+                                    <div class="p-3">
+                                        <div class="ongoing-payment-part mb-3">
+                                            <div class="ongoing-payment-title mb-1">Ongoing Monthly Payment</div>
+                                            <div class="ongoing-payment-sub-title">(Based on your selection)</div>
+                                        </div>
+                                        <div class="total-part border-bottom-grey">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="month mb-3">ISR MAVERICK FOR 12 MONTHS</div>
+                                                <div class="total">$450 / Month</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between border-bottom-grey pb-3">
+                                                <div class="scanning">ID & License Scanning</div>
+                                                <div class="free">Free</div>
+                                            </div>
+                                        </div>
+                                        <div class="total-part">
+                                            <div class="d-flex justify-content-between my-3">
+                                                <div class="month-total">Monthly Total</div>
+                                                <div class="charge">$450</div>
+                                            </div>
+                                        </div>
+                                        <div class="ongoing-payment-part mb-3">
+                                            <div class="ongoing-payment-title">Initial Payment due upon sign-up</div>
+                                            <div class="ongoing-payment-sub-title">( includes account startup fee, your 1st month's subscription & hardware )</div>
+                                        </div>
+                                        <div class="total-part">
+                                            <div class="d-flex justify-content-between">
+                                                <div class="month mb-3">One Time Enrollment Fee</div>
+                                                <div class="total">$1500</div>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <div class="left-part">
+                                                    <div class="month mb-1">1ST Month's Subscription</div>
+                                                    <div class="scanning">(Based on your customized plan)</div> 
+                                                </div>
+                                                <div class="total">$450 / Month</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="total-due">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="total">Upfront total due</div>
+                                            <div class="pay">
+                                                <div class="pay-total"> $1950</div>
+                                                <div class="pay-text">(initial payment)</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-dark btn-bottom d-flex justify-content-center">GET STARTED</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
