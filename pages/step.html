@@ -1,0 +1,278 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stepper with Content</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .stepper {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .step {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      background: #ccc;
+      color: #fff;
+      text-align: center;
+      border-radius: 50%;
+      position: relative;
+      z-index: 1;
+    }
+    .step.active {
+      background: #007bff;
+    }
+    .step::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: calc(100% - 30px);
+      height: 4px;
+      background: #ccc;
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+    .step:last-child::after {
+      display: none;
+    }
+    .step.active::after {
+      background: #007bff;
+    }
+
+    .content {
+      display: none;
+    }
+    .content.active {
+      display: block;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stepper">
+    <div class="step active" data-step="0">1</div>
+    <div class="step" data-step="1">2</div>
+    <div class="step" data-step="2">3</div>
+  </div>
+
+  <div class="content active" id="content-0">
+    <h3>Step 1</h3>
+    <p>This is the content of Step 1.</p>
+  </div>
+  <div class="content" id="content-1">
+    <h3>Step 2</h3>
+    <p>This is the content of Step 2.</p>
+  </div>
+  <div class="content" id="content-2">
+    <h3>Step 3</h3>
+    <p>This is the content of Step 3.</p>
+  </div>
+
+  <div class="buttons">
+    <button onclick="prevStep()">Previous</button>
+    <button onclick="nextStep()">Next</button>
+  </div>
+
+  <script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll('.step');
+    const contents = document.querySelectorAll('.content');
+
+    function updateStepper() {
+      steps.forEach((step, index) => {
+        step.classList.toggle('active', index <= currentStep);
+      });
+      contents.forEach((content, index) => {
+        content.classList.toggle('active', index === currentStep);
+      });
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStepper();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        updateStepper();
+      }
+    }
+  </script>
+
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stepper with Content</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .stepper {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .step{
+        width: 33.33%;
+    }
+    .step::before{
+        background: grey ;
+        content: "";
+        height: 2px;
+        position: absolute;
+        top: 22%;
+        width: 100%;
+        z-index: -1;
+    }
+    .step:last-child{width: 0;}
+    .step .bullet {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      background: #ccc;
+      color: #fff;
+      text-align: center;
+      border-radius: 50%;
+      position: relative;
+      z-index: 1;
+    }
+    .step.active .bullet {
+      background: #007bff;
+    }
+    .step.active:before{
+        background: green;
+    }
+    .step::after .bullet {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: calc(100% - 30px);
+      height: 4px;
+      background: #ccc;
+      transform: translateY(-50%);
+      z-index: 0;
+    }
+    .step:last-child::after .bullet {
+      display: none;
+    }
+    .step.active::after .bullet {
+      background: #007bff;
+    }
+    
+
+    .content {
+      display: none;
+    }
+    .content.active {
+      display: block;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stepper">
+    <div class="step active" data-step="0">
+        <div class="bullet">1</div>
+    </div>
+    <div class="step" data-step="1">
+        <div class="bullet">2</div>
+    </div>
+    <div class="step" data-step="2">
+        <div class="bullet">3</div>
+    </div>
+  </div>
+
+  <div class="content active" id="content-0">
+    <h3>Step 1</h3>
+    <p>This is the content of Step 1.</p>
+  </div>
+  <div class="content" id="content-1">
+    <h3>Step 2</h3>
+    <p>This is the content of Step 2.</p>
+  </div>
+  <div class="content" id="content-2">
+    <h3>Step 3</h3>
+    <p>This is the content of Step 3.</p>
+  </div>
+
+  <div class="buttons">
+    <button onclick="prevStep()">Previous</button>
+    <button onclick="nextStep()">Next</button>
+  </div>
+
+  <script>
+    let currentStep = 0;
+    const steps = document.querySelectorAll('.step');
+    const contents = document.querySelectorAll('.content');
+
+    function updateStepper() {
+      steps.forEach((step, index) => {
+        step.classList.toggle('active', index <= currentStep);
+      });
+      contents.forEach((content, index) => {
+        content.classList.toggle('active', index === currentStep);
+      });
+    }
+
+    function nextStep() {
+      if (currentStep < steps.length - 1) {
+        currentStep++;
+        updateStepper();
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        updateStepper();
+      }
+    }
+  </script>
+
+</body>
+</html>
+

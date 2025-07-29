@@ -4,6 +4,16 @@ $('.multiple-items').slick({
   slidesToScroll: 3
 });
 $(document).ready(function () {
+// STICKY NAVBAR
+$(window).on("scroll", function() {
+    if($(window).scrollTop() > 50) {
+        $(".inner-navbar").addClass("active");
+    } else {
+        //remove the background property so it comes transparent again (defined in your css)
+       $(".inner-navbar").removeClass("active");
+    }
+});
+// END STICKY NAVBAR
 
 // NAVBAR HIGHLIGHT
     // Get all sections that have an ID defined
