@@ -41,7 +41,7 @@ function compress() {
                 'assets/plugins/bootstrap/dist/js/bootstrap.bundle.js',
                 'assets/plugins/bootstrap-select/dist/js/bootstrap-select.js',
                 'assets/plugins/slick/slick.min.js',
-                'assets/plugins/jquery.easing/jquery.easing.js',
+                'assets/plugins/JS-EASE/jquery.easing.js',
                 'assets/js/scripts.js',
             ])
             .pipe(uglify())
