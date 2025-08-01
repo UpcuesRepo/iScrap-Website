@@ -13,7 +13,7 @@ nav{
             height: 90px;
             position: fixed;
             width: 100%;
-            z-index: 1;
+            z-index: 2;
             position: fixed;
             top: 0;
             left: 0;
@@ -157,7 +157,80 @@ nav{
         }
     }
 }
+// RADIO BUTTON
+.form-check{
+    position: relative;
+    .form-check-label {
+        margin-top: 0px;
+        font-weight: $font-400;
+        &.style-1 {
+           font-size: $font-size-md;
+            line-height: $line-height-26;
+        }
+    }
+}
+.form-check-input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $skyblue-2;
+    background-color: $white;
+    margin-bottom: 0px;
 
+    &:checked {
+        background-color: $skyblue-2;
+        border: 1px solid $skyblue-2;
+        background-image: none;
+    }
+    &:focus{
+        box-shadow: none;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: $skyblue-2;
+    }
+
+    &.add-after2 {
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        margin: 0;
+        min-height: 20px;
+
+        &+svg {
+            display: none;
+            &+.form-check-label {
+                font-size: $font-size-md;
+                color: $black;
+                font-weight: $font-400;
+                line-height: $line-height-20;
+            }
+        }
+
+        &:checked {
+            &+svg {
+                z-index: 2;
+                display: block;
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                color: #fff;
+                width: 10px;
+                height: 10px;
+            }
+        }
+    }
+}
+// END RADIO BUTTON
+//input
+.input-group{
+    .form-control{
+        border-radius: $radius-lg;
+        border: 1px solid $skyblue-2;
+    }
+}
+//end input
 .main-content {
     width: 100%;
     .md-flex-column{
@@ -253,6 +326,20 @@ nav{
                             font-size: $font-size-lg;
                         }
                     }
+                    .description-paragraph{
+                        font-size: $font-size-lg;
+                        line-height: $line-height-36;
+                        @include media-breakpoint-down(lg){
+                            font-size: $font-size-16;
+                        }
+                        @include media-breakpoint-down(md){
+                            margin-top: 20px;
+                        }
+                        @include media-breakpoint-down(sm){
+                            font-size: $font-size-md;
+                            margin-top: 20px;
+                        }    
+                    }
                 }
             }
         }
@@ -332,9 +419,9 @@ nav{
             }
             .white-box{
                 background-color: $white-2;
-                padding: 50px 20px 50px 50px;
+                padding: 50px 40px;
                 border-radius: 0 50px 50px 0;
-                box-shadow: 10px 0px 10px 0px #00000026;
+                box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.15);
                 .step-section{
                     .stepper {
                         display: flex;
@@ -417,12 +504,64 @@ nav{
                         }
                     }
                     .content {
-                    display: none;
+                        display: none;
                         &.active {
                             display: block;
-                            padding: 15px;
-                            border: 1px solid #ccc;
-                            border-radius: 8px;
+                        }
+                        .pricing-slide{
+                            .slick-slide{
+                                padding-top: 60px;
+                            }
+                            .slick-arrow{
+                                &.slick-prev{
+                                    height: 30px;
+                                    width: 30px;
+                                    background-size: contain;
+                                    background-image: url("../../../images/icons/arrow-circle-right.svg");
+                                    background-repeat: no-repeat;
+                                    left: -35px;
+                                    top: 50%;
+                                    &::before{
+                                        content: "";
+                                    }
+                                }
+                                &.slick-next{
+                                    height: 30px;
+                                    width: 30px;
+                                    background-size: contain;
+                                    background-image: url("../../../images/icons/arrow-circle-right.svg");
+                                    transform: rotate(180deg);
+                                    background-repeat: no-repeat;
+                                    right: -34px;
+                                    top: 49%;
+                                    &::before{
+                                        content: "";
+                                    }
+                                }
+                            }
+                            .slick-dots{
+                                li{
+                                    height: 13px;
+                                    width: 13px;
+                                    button{
+                                        height: 13px;
+                                        width: 13px;
+                                        background: rgba(0, 0, 0, 0.1);
+                                        border-radius: $radius-full;
+                                        &::before{
+                                            content: "";
+                                        }
+                                    }
+                                    &.slick-active{
+                                        width: 40px;
+                                        button{
+                                            background: $green-2;
+                                            width: 40px;
+                                            border-radius: 10px;
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -433,8 +572,8 @@ nav{
             .review-plan-card{
                 background-color: $white;
                 border-radius: $radius-15;
-                box-shadow: 0px 10px 20px 10px #0000000D;
-                overflow: hidden;
+                box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
+                position: relative;
                 .ongoing-payment-part{
                     background-color: $grey13-rgba4;
                     padding: 15px;
@@ -498,7 +637,6 @@ nav{
                 }
                 .total-due{
                     padding: 20px 15px 40px 15px;
-                    position: relative;
                     background-color: #4EB855;
                     box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
                     border-radius: $radius-lg;
@@ -523,8 +661,298 @@ nav{
                 .btn{
                     &.btn-bottom{
                         position: absolute;
-                        bottom: 2%;
-                        right: 11%;
+                        bottom: -4%;
+                        left: 150px;
+                    }
+                }
+            }
+            .feature-card{
+                box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
+                border-radius: $radius-lg;
+                padding: 20px 10px;
+                background-color: $white;
+                position: relative;
+                cursor: pointer;
+                &.active{
+                    border: 1px solid $skyblue-2;
+                    background-color: $skyblue-6;
+                }
+                .feature-card-title{
+                    font-size: $font-size-22;
+                    font-weight: $font-800;
+                    letter-spacing: $letter-spacing10;
+                    color: $skyblue-2;
+                    text-transform: $text-uppercase;
+                }
+                .feature-card-subtitle{
+                    font-size: $font-size-md;
+                    font-weight: $font-700;
+                    text-transform: $text-uppercase;
+                }
+                .feature-white-box{
+                    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
+                    background-color: $white;
+                    border:1px solid $skyblue-5;
+                    border-radius: $radius-lg;
+                    padding: 15px 15px 40px 15px;
+                    position: relative;
+                    &.without-btn{
+                        padding: 15px;
+                    }
+                    .box-title{
+                        font-size: $font-size-md;
+                        font-weight: $font-800;
+                        text-transform: $text-uppercase;
+                        &.red-title{
+                            color: $red-2
+                        }
+                    }
+                    .box-labels{
+                        color: $dark-2;
+                        font-size: $font-size-13;
+                        &.red-labels{
+                            color: $red-2
+                        }
+                    }
+                    .btn{
+                        &.btn-bottom{
+                            position: absolute;
+                            right: 0;
+                            bottom: -20px;
+                        }
+                    }
+                }
+                &::before{
+                    content: "";
+                    background: url("../../../images/backgrounds/Flat-ipad-2.png");
+                    width: 180px;
+                    height: 130px;
+                    position: absolute;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    top: -55px;
+                    right: 0;
+                }
+            }
+            .ote-card{
+                box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
+                border-radius: $radius-lg;
+                background-color: $white;
+                position: relative;
+                cursor: pointer;    
+                border: 1px solid $skyblue-5;
+                &.active{
+                    border: 1px solid $skyblue-2;
+                    background-color: $skyblue-6;
+                }
+                &::before{
+                    content: "";
+                    background: url("../../../images/backgrounds/Flat-ipad-2.png");
+                    width: 115px;
+                    height: 90px;
+                    position: absolute;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    top: -55px;
+                    right: 0;
+                }
+                &.subscription-card{
+                    z-index: 1;
+                    &.small-img-top{
+                        &::before{
+                            content: "";
+                            background: url("../../../images/backgrounds/Flat-ipad-2.png");
+                            width: 85px;
+                            height: 60px;
+                            position: absolute;
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            top: -30px;
+                            right: 0;
+                        }    
+                    }
+                    &.img-top-none{
+                        &::before{
+                            width: 0;
+                            height: 0;
+                            background: none;
+                        }
+                    }
+                    &.disable{
+                        background-color: $grey-16;
+                        pointer-events: none;
+                    }
+                    .subscription-title{
+                        font-size: $font-size-16;
+                        font-weight: $font-800;
+                        letter-spacing: $letter-spacing10;
+                        color: $dark-blue;
+                    }
+                    img{
+                        &.top-tag{
+                            top: -15px;
+                            left: 55px;
+                            position: absolute;
+                        }
+                    }
+                }
+                &.basic-card{
+                    position: relative;
+                    .subtitle{
+                        font-size: $font-size-lg;
+                        font-weight: $font-700;
+                    }
+                    .desc-title{
+                        font-size: $font-size-16;
+                        font-weight: $font-700;    
+                    }
+                    .desc{
+                        font-size: $font-size-md;
+                    }
+                    &::before{
+                        content: "";
+                        background: url("../../../images/backgrounds/Flat-ipad-2.png");
+                        width: 115px;
+                        height: 90px;
+                        position: absolute;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        top: -55px;
+                        left: 0;
+                    }    
+                    .tag-top{
+                        top: -15px;
+                        right: 0;
+                        position: absolute;
+                    }
+                }
+                .border-bottom-skyblue{
+                    border-bottom: 1px solid $skyblue-2;
+                }
+                .ote-title{
+                    font-size: $font-size-22;
+                    font-weight: $font-800;
+                    letter-spacing: $letter-spacing10;
+                    color: $skyblue-2;
+                    text-transform: $text-uppercase;
+                }
+                .red-subtitle{
+                    font-size: $font-size-md;
+                    font-weight: $font-800;
+                    text-transform: $text-uppercase;   
+                    color: $red-2;
+                    .line-through{
+                        text-decoration: line-through;
+                    }
+                }
+                .green-subtitle{
+                    font-size: $font-size-24;
+                    font-weight: $font-900;
+                    text-transform: $text-uppercase;   
+                    color: $green-2;
+                }
+                .black-subtitle{
+                    font-size: $font-size-md;
+                    font-weight: $font-700;
+                }
+                .box-labels{
+                    font-size: $font-size-13;
+                    text-transform: lowercase;
+                }
+            }
+            .addon-card{
+                box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
+                border-radius: $radius-lg;
+                background-color: $white;
+                position: relative;
+                cursor: pointer;    
+                border: 1px solid $skyblue-5;  
+                padding: 20px 10px;
+                height: 355px;
+                &.active{
+                    border: 1px solid $skyblue-2;
+                    background-color: $skyblue-6;
+                }  
+                .addon-title{
+                    font-size: $font-size-22;
+                    font-weight: $font-800;
+                    letter-spacing: $letter-spacing10;
+                    color: $skyblue-2;
+                    text-transform: $text-uppercase;
+                    &.black-title{
+                        color: $black;
+                    }
+                }
+                .addon-paragraph{
+                    font-size: $font-size-md;
+                    line-height: $line-height-26;
+                }
+            }
+            .subscription-content{
+                .blue-strip{
+                    background-color: $skyblue-2;
+                    box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
+                    border: 1px solid $skyblue-5;
+                    border-radius: $radius-lg;
+                    padding: 5px;
+                    width: 100%;
+                    color: $white-2;
+                    font-size: $font-size-22;
+                    font-weight: $font-800;
+                    letter-spacing: $letter-spacing10;
+                    text-align: center;
+                    position: relative;
+                }
+                .plan-part{
+                    .description-row{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr;
+                    }
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        height: 40%;
+                        width: 3px;
+                        background: $skyblue-2;
+                        top: 44%;
+                        z-index: 0;
+                        right: 91%;
+                        z-index: 0;
+                    }
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        height: 40%;
+                        width: 3px;
+                        background: $skyblue-2;
+                        top: 44%;
+                        z-index: 0;
+                        right: 75%;
+                        z-index: 0;
+                    }
+                    .vertical-lines{
+                        &::after{
+                            content: "";
+                            position: absolute;
+                            height: 40%;
+                            width: 2px;
+                            background: $skyblue-2;
+                            top: 44%;
+                            z-index: 0;
+                            right: 45%;
+                            z-index: 0;
+                        }
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            height: 40%;
+                            width: 3px;
+                            background: $skyblue-2;
+                            top: 44%;
+                            z-index: 0;
+                            right: 60%;
+                            z-index: 0;
+                        }
                     }
                 }
             }
@@ -1000,6 +1428,27 @@ nav{
             background-color: $black;
             border: 0;
         }
+    }
+    &.btn-green-border{
+        background-color: $green-3;
+        border: 1px solid $green-2;
+        color:$green-2;
+        font-size: $font-size-md;
+        font-weight: $font-700;
+        text-transform: $text-uppercase;
+        padding: 9px 20px;
+        &:hover{
+            background-color: $green-2;
+            color: $white;
+            svg{
+                path{
+                    stroke: $white;
+                }
+            }
+        }
+    }
+    &.btn-radius0{
+        border-radius: 0;
     }
 }
 
