@@ -155,82 +155,11 @@ nav{
                 display: block;
             }
         }
-    }
-}
-// RADIO BUTTON
-.form-check{
-    position: relative;
-    .form-check-label {
-        margin-top: 0px;
-        font-weight: $font-400;
-        &.style-1 {
-           font-size: $font-size-md;
-            line-height: $line-height-26;
+        &.bg-navbar{
+            background: url("../../../images/backgrounds/bg-nav.png");
         }
     }
 }
-.form-check-input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid $skyblue-2;
-    background-color: $white;
-    margin-bottom: 0px;
-
-    &:checked {
-        background-color: $skyblue-2;
-        border: 1px solid $skyblue-2;
-        background-image: none;
-    }
-    &:focus{
-        box-shadow: none;
-    }
-    &:hover {
-        cursor: pointer;
-        background-color: $skyblue-2;
-    }
-
-    &.add-after2 {
-        z-index: 1;
-        position: absolute;
-        left: 0;
-        top: 0px;
-        margin: 0;
-        min-height: 20px;
-
-        &+svg {
-            display: none;
-            &+.form-check-label {
-                font-size: $font-size-md;
-                color: $black;
-                font-weight: $font-400;
-                line-height: $line-height-20;
-            }
-        }
-
-        &:checked {
-            &+svg {
-                z-index: 2;
-                display: block;
-                position: absolute;
-                left: 5px;
-                top: 5px;
-                color: #fff;
-                width: 10px;
-                height: 10px;
-            }
-        }
-    }
-}
-// END RADIO BUTTON
-//input
-.input-group{
-    .form-control{
-        border-radius: $radius-lg;
-        border: 1px solid $skyblue-2;
-    }
-}
-//end input
 .main-content {
     width: 100%;
     .md-flex-column{
@@ -264,6 +193,9 @@ nav{
         }
         &.white-title{
             color: $white;
+        }
+        &.sm-title{
+            font-size: $font-size-26
         }
     }
     section {
@@ -1393,6 +1325,9 @@ nav{
         }
         .footer{
             &.main-footer{
+                position: sticky;
+                bottom: 0;
+                width: 100%;
                 background-image: url("../../../images/backgrounds/gradient-bg.png");
                 padding: 50px;
                 @include media-breakpoint-down(lg){
@@ -1467,7 +1402,37 @@ nav{
             }
         }
     }
+    &.login-page{
+        background: url("../../../images/backgrounds/price-shape.png");
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-top: 90px;
+        .middle-part{
+            height: 100vh;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .white-box{
+                background-color: $white;
+                box-shadow: 0px 10px 20px 10px rgba(0, 0, 0, 0.05);
+                border-radius: $radius-lg;
+                position: relative;
+                padding: 20px;
+                width: 550px;
+                .btn-part{
+                    padding: 0 20px;
+                    position: absolute;
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+    }
 }
+
+
 
 .btn{
     border-radius: $radius-xxl;
@@ -1687,6 +1652,10 @@ nav{
         box-shadow: none;
         border: 1px solid $skyblue-5;
     }
+    &.h-44{
+        font-size: $font-size-16;
+        padding: 10px 12px;
+    }
 }
 .form-group{
     position: relative;
@@ -1789,7 +1758,79 @@ nav{
         }
     }
 }
-// end input
+.error-mesg{
+    background-color: $red-2-10;
+    color: $red-2;
+    border: 1px solid $red-2;
+    border-radius: $radius-lg;
+    padding: 5px 10px;
+    font-size: $font-size-md;
+    font-weight: $font-600;
+}
+//end input
+// RADIO BUTTON
+.form-check-input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid $skyblue-2;
+    background-color: $white;
+    margin-bottom: 0px;
+
+    &:checked {
+        background-color: $skyblue-2;
+        border: 1px solid $skyblue-2;
+        background-image: none;
+    }
+    &:focus{
+        box-shadow: none;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: $skyblue-2;
+    }
+
+    &.add-after2 {
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0px;
+        margin: 0;
+        min-height: 20px;
+
+        &+svg {
+            display: none;
+            &+.form-check-label {
+                font-size: $font-size-md;
+                color: $black;
+                font-weight: $font-400;
+                line-height: $line-height-20;
+            }
+        }
+
+        &:checked {
+            &+svg {
+                z-index: 2;
+                display: block;
+                position: absolute;
+                left: 5px;
+                top: 5px;
+                color: #fff;
+                width: 10px;
+                height: 10px;
+            }
+        }
+    }
+}
+// END RADIO BUTTON
+//input
+.input-group{
+    .form-control{
+        border-radius: $radius-lg;
+        border: 1px solid $skyblue-2;
+    }
+}
+//end input
 
 //CHECK BOX
 .form-check {
@@ -1852,6 +1893,11 @@ nav{
     .form-check-label {
         &.style-2 {
            font-size: $font-size-md;
+           font-weight: $font-600;
+           text-transform: capitalize;
+        }
+        &.style-1 {
+           font-size: $font-size-lg;
            font-weight: $font-600;
            text-transform: capitalize;
         }
