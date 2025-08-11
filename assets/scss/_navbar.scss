@@ -162,6 +162,8 @@ nav{
 }
 .main-content {
     width: 100%;
+    position: relative;
+    padding-bottom: 305px; //FOOTER HEIGHT
     .md-flex-column{
         @include media-breakpoint-down(md){
             flex-direction: column;
@@ -1325,7 +1327,7 @@ nav{
         }
         .footer{
             &.main-footer{
-                position: sticky;
+                position: absolute;
                 bottom: 0;
                 width: 100%;
                 background-image: url("../../../images/backgrounds/gradient-bg.png");
