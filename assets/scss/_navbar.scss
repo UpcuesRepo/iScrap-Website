@@ -1760,13 +1760,24 @@ nav{
         }
     }
 }
-.error-mesg{
+.error-mesg-old{
     background-color: $red-2-10;
     color: $red-2;
     border: 1px solid $red-2;
     border-radius: $radius-lg;
     padding: 5px 10px;
     font-size: $font-size-md;
+    font-weight: $font-600;
+}
+
+.error-mesg{
+   // background-color: $red-2-10;
+    color: $red-2;
+    // border: 1px solid $red-2;
+    // border-radius: $radius-lg;
+    // padding: 5px 10px;
+    padding: 2px 0px;
+    font-size: $font-size-sm;
     font-weight: $font-600;
 }
 //end input
