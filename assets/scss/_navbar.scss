@@ -1425,6 +1425,9 @@ nav{
                 position: relative;
                 padding: 20px;
                 width: 550px;
+                &.big-box{
+                    width: 700px;
+                }
                 .btn-part{
                     padding: 0 20px;
                     position: absolute;
