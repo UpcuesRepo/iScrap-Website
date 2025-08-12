@@ -213,7 +213,7 @@ const progressText = document.querySelectorAll(".step p");
 const step = document.querySelectorAll(".step");
 let current = 1;
 
-nextBtnFirst.addEventListener("click", function(event){
+/*nextBtnFirst.addEventListener("click", function(event){
   event.preventDefault();
   slidePage.style.marginLeft = "-25%";
   step[current - 1].classList.add("active");
@@ -279,7 +279,110 @@ prevBtnFifth.addEventListener("click", function(event){
   progressText[current - 2].classList.remove("active");
   current -= 1;
 });
+*/
 
+if (nextBtnFirst) {
+  nextBtnFirst.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-20%";
+      step[current - 1].classList.add("active");
+      progressText[current - 1].classList.add("active");
+      current += 1;
+  });
+}
+if (nextBtnSec) {
+  nextBtnSec.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-50%";
+      step[current - 1].classList.add("active");
+      progressText[current - 1].classList.add("active");
+      current += 1;
+  });
+}
+if (nextBtnThird) {
+  nextBtnThird.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-75%";
+      step[current - 1].classList.add("active");
+      progressText[current - 1].classList.add("active");
+      current += 1;
+  });
+}
+if (nextBtnFourth) {
+  nextBtnFourth.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-100%";
+      step[current - 1].classList.add("active");
+      progressText[current - 1].classList.add("active");
+      current += 1;
+  });
+}
+if (nextBtnFifth) {
+  nextBtnFifth.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-125%";
+      step[current - 1].classList.add("active");
+      progressText[current - 1].classList.add("active");
+      current += 1;
+  });
+}
+
+if (submitBtn) {
+  submitBtn.addEventListener("click", function () {
+      step[current - 1].classList.add("active");
+      progressText[current - 1].classList.add("active");
+      current += 1;
+      setTimeout(function () {
+          alert("Your Form Successfully Signed up");
+          location.reload();
+      }, 800);
+  });
+}
+if (prevBtnSec) {
+  prevBtnSec.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "0%";
+      step[current - 2].classList.remove("active");
+      progressText[current - 2].classList.remove("active");
+      current -= 1;
+  });
+}
+if (prevBtnThird) {
+  prevBtnThird.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-20%";
+      step[current - 2].classList.remove("active");
+      progressText[current - 2].classList.remove("active");
+      current -= 1;
+  });
+}
+if (prevBtnFourth) {
+  prevBtnFourth.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-50%";
+      step[current - 2].classList.remove("active");
+      progressText[current - 2].classList.remove("active");
+      current -= 1;
+  });
+}
+if (prevBtnFifth) {
+  prevBtnFifth.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-75%";
+      step[current - 2].classList.remove("active");
+      progressText[current - 2].classList.remove("active");
+      current -= 1;
+  });
+}
+if (prevBtnSixth) {
+  prevBtnSixth.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-75%";
+      step[current - 2].classList.remove("active");
+      progressText[current - 2].classList.remove("active");
+      current -= 1;
+  });
+}
 
 // END PRICING STEPS
 
