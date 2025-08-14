@@ -207,7 +207,6 @@ const prevBtnThird = document.querySelector(".prev-2");
 const nextBtnThird = document.querySelector(".next-2");
 const nextBtnFourth = document.querySelector(".next-3");
 const prevBtnFourth = document.querySelector(".prev-3");
-const nextBtnFifth = document.querySelector(".next-4");
 const prevBtnFifth = document.querySelector(".prev-4");
 const submitBtn = document.querySelector(".submit");
 const progressText = document.querySelectorAll(".step p");
@@ -375,6 +374,16 @@ if (prevBtnFifth) {
       current -= 1;
   });
 }
+if (prevBtnSixth) {
+  prevBtnSixth.addEventListener("click", function (event) {
+      event.preventDefault();
+      slidePage.style.marginLeft = "-75%";
+      step[current - 2].classList.remove("active");
+      progressText[current - 2].classList.remove("active");
+      current -= 1;
+  });
+}
+
 // END PRICING STEPS
 
 
