@@ -1614,6 +1614,9 @@ nav{
         }
         &.modal-52 {
             max-width: 52.7%;
+            @include media-breakpoint-down(xl){
+                max-width: 80%;
+            }
         }
         &.modal-edit-user{
             .modal-content{
