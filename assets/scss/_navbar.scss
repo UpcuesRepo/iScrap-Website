@@ -1224,7 +1224,7 @@ nav{
             padding: 50px;
             height: 100%;
             background-color: rgba(51, 132, 216, 0.05);
-            background-image: url("../../../images/backgrounds/price-shape.png");
+            // background-image: url("../../../images/backgrounds/price-shape.png");
             background-repeat: no-repeat;
             background-position: center;
             @include media-breakpoint-down(md){
@@ -1405,7 +1405,7 @@ nav{
         }
     }
     &.login-page{
-        background: url("../../../images/backgrounds/price-shape.png");
+        // background: url("../../../images/backgrounds/price-shape.png");
         height: 100%;
         background-size: cover;
         background-repeat: no-repeat;
